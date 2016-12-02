@@ -21,15 +21,19 @@ public class UtilisateurDbSchema {
             // colonne qui indique le nom d'un Element
             public static final String LONGITUDE = "longtitude";
             // colonne qui indique le nom d'un Element
+            public static final String NOM_COMPTE = "nom_compte";
+            // colonne qui indique le nom d'un Element
+            public static final String MOT_DE_PASSE = "mot_de_passe";
+            // colonne qui indique le nom d'un Element
             public static final String NOM = "nom";
             // colonne qui indique le prenom d'un Element
             public static final String PRENOM = "prenom";
             // colonne qui indique le lieu de stage d'un Element
-            public static final String LIEU_STAGE = "prenom";
+            public static final String LIEU_STAGE = "lieu_stage";
             // colonne qui indique la ville d'origine d'un Element
-            public static final String VILLE_ORIGINE = "prenom";
+            public static final String VILLE_ORIGINE = "ville_origine";
             // colonne qui indique le contact d'un Element
-            public static final String CONTACT = "prenom";
+            public static final String CONTACT = "contact";
             // colonne qui indique la description d'un Element
             public static final String DESCRIPTION = "description";
         } //class Colonnes

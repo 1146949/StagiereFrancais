@@ -1,0 +1,6 @@
+Mike : Validation + ValidationCompte, factory method pour la classe utilisateur
+Frank : SingletonBD
+Alexis : Utilisateur, UtilisateurMarquer, UtilisateurBaseHelper, UtilisateurCursorWrapper, UtilisateurDbSchema
+Antoine : InscriptionActivity, InscriptionActivity
+Anthony L. : MapActivity, MapActivity
+Anthony G. : LoginActivity, LoginActivity

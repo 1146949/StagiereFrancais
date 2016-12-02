@@ -38,6 +38,8 @@ public class UtilisateurBaseHelper extends SQLiteOpenHelper {
                 Colonnes.ID + ", " +
                 Colonnes.LATITUDE  + ", " +
                 Colonnes.LONGITUDE + ", " +
+                Colonnes.NOM_COMPTE + ", " +
+                Colonnes.MOT_DE_PASSE + ", " +
                 Colonnes.NOM + ", " +
                 Colonnes.PRENOM + ", " +
                 Colonnes.LIEU_STAGE + ", " +
