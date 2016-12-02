@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Francais GO</string>
+    <string name="placeholder_login">Usager</string>
+    <string name="placeholer_password">Password</string>
+    <string name="bouton_inscription">Inscription</string>
+    <string name="bouton_connexion">Connexion</string>
+    <string name="description_accueil">Francais GO est une application Android basée sur google map pour retrouver d'autres francais</string>
     <string name="title_activity_maps">Map</string>
 </resources>
