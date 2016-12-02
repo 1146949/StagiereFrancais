@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_A9IaoK2sEeaIAtKalVUgrw" name="NewModel">
+  <packageImport xmi:id="_MQ6xIK2uEeaIAtKalVUgrw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_kiqIoK2sEeaIAtKalVUgrw" name="BaseDeDonnees">
+    <packagedElement xmi:type="uml:Class" xmi:id="_b__kAK2sEeaIAtKalVUgrw" name="BaseHelper">
+      <ownedAttribute xmi:id="_AcIJ4K2tEeaIAtKalVUgrw" name="Version" visibility="private" isStatic="true" isReadOnly="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_kTM64K2tEeaIAtKalVUgrw" name="DATABASE_NAME" isLeaf="true" isStatic="true" isReadOnly="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_xLwhsK2tEeaIAtKalVUgrw" name="BaseHelper">
+        <ownedParameter xmi:id="_zuoHEK2tEeaIAtKalVUgrw" name="p_contexte"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_cbFSoK2uEeaIAtKalVUgrw" name="onUpgrade">
+        <ownedParameter xmi:id="_gkmFsK2uEeaIAtKalVUgrw" name="db"/>
+        <ownedParameter xmi:id="_lzfzgK2uEeaIAtKalVUgrw" name="oldVersion">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_EAdhYK2vEeaIAtKalVUgrw" name="onCreate">
+        <ownedParameter xmi:id="_FSDFEK2vEeaIAtKalVUgrw" name="db"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_4ekdcK2sEeaIAtKalVUgrw" name="DbSchema"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_41Op8K2sEeaIAtKalVUgrw" name="CursorWrapper">
+      <ownedOperation xmi:id="_NlVw8K2vEeaIAtKalVUgrw" name="CursorWrapper">
+        <ownedParameter xmi:id="_P-tcEK2vEeaIAtKalVUgrw" name="cursor"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_TfolIK2vEeaIAtKalVUgrw" name="getMarqueur"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tLaxYK2wEeaIAtKalVUgrw" name="Validation">
+    <ownedOperation xmi:id="_zhdGYK2wEeaIAtKalVUgrw" name="stringNonVide" isStatic="true">
+      <ownedParameter xmi:id="_4McO0K2wEeaIAtKalVUgrw" name="p_texte">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_-Tz1sK2wEeaIAtKalVUgrw" direction="return">
+        <name xsi:nil="true"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_DNN0oK2xEeaIAtKalVUgrw" name="tailleMinimum" isStatic="true">
+      <ownedParameter xmi:id="_EyMOYK2xEeaIAtKalVUgrw" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Gv7GYK2xEeaIAtKalVUgrw" name="p_texte">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_JCtoYK2xEeaIAtKalVUgrw" name="p_minimum">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_OAei4K2xEeaIAtKalVUgrw" name="tailleMaximum" isStatic="true">
+      <ownedParameter xmi:id="_PtzAUK2xEeaIAtKalVUgrw" direction="return">
+        <name xsi:nil="true"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_TbYsYK2xEeaIAtKalVUgrw" name="p_texte">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_WJG24K2xEeaIAtKalVUgrw" name="p_maximum">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_AknlQK2yEeaIAtKalVUgrw" name="saisieTexteIntervalle" isStatic="true">
+      <ownedParameter xmi:id="_HIHugK2yEeaIAtKalVUgrw" name="p_texte">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Jko0QK2yEeaIAtKalVUgrw" name="p_minimum">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_QWmQQK2yEeaIAtKalVUgrw" name="p_maximum">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_3S0NQK2yEeaIAtKalVUgrw" name="formatTelephone" visibility="private" isStatic="true">
+      <ownedParameter xmi:id="_5MV6sK2yEeaIAtKalVUgrw" name="p_numeroTelephone">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_8IVPwLGZEeacutPMXXcEdA" name="saisieEstAlphaNumerique" isStatic="true">
+      <ownedParameter xmi:id="_BJNvsLGaEeacutPMXXcEdA" name="saisie">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_LahAYLGaEeacutPMXXcEdA" name="meRejoindreValide" isStatic="true">
+      <ownedParameter xmi:id="_NfqH8LGaEeacutPMXXcEdA" name="rejoindre">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Wvy2kLGaEeacutPMXXcEdA" name="courrielValide" visibility="private" isStatic="true">
+      <ownedParameter xmi:id="_YlTmsLGaEeacutPMXXcEdA" name="courriel">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_dOfYULGaEeacutPMXXcEdA" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ORbGoLGbEeacutPMXXcEdA" name="Validation" isStatic="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_geKREK2vEeaIAtKalVUgrw" name="MarqueurTable"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_QR1KELGZEeacutPMXXcEdA" name="Colonnes">
+    <ownedAttribute xmi:id="_siMqsK2vEeaIAtKalVUgrw" name="ID"/>
+    <ownedAttribute xmi:id="_5Rqm8K2vEeaIAtKalVUgrw" name="compteUtilisateur"/>
+    <ownedAttribute xmi:id="_612WgK2vEeaIAtKalVUgrw" name="motDePasse"/>
+    <ownedAttribute xmi:id="__YDWYK2vEeaIAtKalVUgrw" name="prenom"/>
+    <ownedAttribute xmi:id="_AXG_oK2wEeaIAtKalVUgrw" name="nom"/>
+    <ownedAttribute xmi:id="_BBgAcK2wEeaIAtKalVUgrw" name="etablissementOrigine"/>
+    <ownedAttribute xmi:id="_CXp7EK2wEeaIAtKalVUgrw" name="lieuDeStage"/>
+    <ownedAttribute xmi:id="_EI3aAK2wEeaIAtKalVUgrw" name="numeroTelephone"/>
+    <ownedAttribute xmi:id="_H2sWoK2wEeaIAtKalVUgrw" name="rejoindre"/>
+    <ownedAttribute xmi:id="_JoPz0K2wEeaIAtKalVUgrw" name="Commentaire"/>
+    <ownedAttribute xmi:id="_bT-1wK2wEeaIAtKalVUgrw" name="LATTITUDE"/>
+    <ownedAttribute xmi:id="_ejNK0K2wEeaIAtKalVUgrw" name="LONGITUDE"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_B_qaELGbEeacutPMXXcEdA" name="ValidationCompte">
+    <ownedOperation xmi:id="_Q11kILGbEeacutPMXXcEdA" name="ValidationCompte" visibility="private" isStatic="true"/>
+    <ownedOperation xmi:id="_XoC3wLGbEeacutPMXXcEdA" name="validerNomCompte" visibility="private" isStatic="true"/>
+    <ownedOperation xmi:id="_cVkW0LGbEeacutPMXXcEdA" name="validerMotDePasse" visibility="private" isStatic="true"/>
+    <ownedOperation xmi:id="_gFrLYLGbEeacutPMXXcEdA" name="validerNom" visibility="private" isStatic="true"/>
+    <ownedOperation xmi:id="_gVxc4LGbEeacutPMXXcEdA" name="validerPrenom" visibility="private" isStatic="true"/>
+    <ownedOperation xmi:id="_gx2U4LGbEeacutPMXXcEdA" name="validerEtablissementOrigine" visibility="private" isStatic="true"/>
+    <ownedOperation xmi:id="_g_qHYLGbEeacutPMXXcEdA" name="validerVilleStage" visibility="private" isStatic="true"/>
+    <ownedOperation xmi:id="_pFzIELGbEeacutPMXXcEdA" name="validerJoindre" visibility="private" isStatic="true"/>
+    <ownedOperation xmi:id="_qbehkLGbEeacutPMXXcEdA" name="validerCommentaire" visibility="private" isStatic="true"/>
+    <ownedOperation xmi:id="_C6t3oLGcEeacutPMXXcEdA" name="validerCreationCompte" isStatic="true"/>
+    <ownedOperation xmi:id="_NoJqsLGcEeacutPMXXcEdA" name="validerModificationCompte" isStatic="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ojtJ0LGqEeacutPMXXcEdA" name="Utilisateur">
+    <ownedAttribute xmi:id="_uDLqQLGqEeacutPMXXcEdA" name="compteUtilisateur"/>
+    <ownedAttribute xmi:id="_uDMRULGqEeacutPMXXcEdA" name="lieuDeStage"/>
+    <ownedAttribute xmi:id="_uDMRUbGqEeacutPMXXcEdA" name="prenom"/>
+    <ownedAttribute xmi:id="_uDMRUrGqEeacutPMXXcEdA" name="Commentaire"/>
+    <ownedAttribute xmi:id="_uDMRU7GqEeacutPMXXcEdA" name="etablissementOrigine"/>
+    <ownedAttribute xmi:id="_uDMRVLGqEeacutPMXXcEdA" name="LATTITUDE"/>
+    <ownedAttribute xmi:id="_uDMRVbGqEeacutPMXXcEdA" name="rejoindre"/>
+    <ownedAttribute xmi:id="_uDMRVrGqEeacutPMXXcEdA" name="motDePasse"/>
+    <ownedAttribute xmi:id="_uDMRV7GqEeacutPMXXcEdA" name="ID"/>
+    <ownedAttribute xmi:id="_uDMRWLGqEeacutPMXXcEdA" name="nom"/>
+    <ownedAttribute xmi:id="_uDMRWbGqEeacutPMXXcEdA" name="LONGITUDE"/>
+    <ownedAttribute xmi:id="_uDMRWrGqEeacutPMXXcEdA" name="numeroTelephone"/>
+    <ownedOperation xmi:id="_wML-ILGqEeacutPMXXcEdA" name="Utilisateur">
+      <ownedParameter xmi:id="_5VN_MLGqEeacutPMXXcEdA" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_7acmULGqEeacutPMXXcEdA" name="nom">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_9L0dULGqEeacutPMXXcEdA" name="prenom">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_BLVm4LGrEeacutPMXXcEdA" name="lieuDeStage">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Ey-b8LGrEeacutPMXXcEdA" name="nomUtilisateur">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_HW-CsLGrEeacutPMXXcEdA" name="commentaire">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_KtboMLGrEeacutPMXXcEdA" name="motDePasse">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_NffgILGrEeacutPMXXcEdA" name="Longitude">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Q2ppMLGrEeacutPMXXcEdA" name="lattitude">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Z9TrsLGrEeacutPMXXcEdA" name="rejoindre">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_cfvMMLGrEeacutPMXXcEdA" name="etablissementOrigine">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_xUbYkLGqEeacutPMXXcEdA" name="creerUtilisateur"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_n0lkkLGrEeacutPMXXcEdA" name="SingletonBD">
+    <ownedAttribute xmi:id="_xOfTMLGrEeacutPMXXcEdA" name="m_singletonBD" visibility="public" isStatic="true" type="_n0lkkLGrEeacutPMXXcEdA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xOf6QLGrEeacutPMXXcEdA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xOghULGrEeacutPMXXcEdA" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_4y7VALGrEeacutPMXXcEdA" name="m_bd" visibility="public" isStatic="true">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4y8jILGrEeacutPMXXcEdA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4y9KMLGrEeacutPMXXcEdA" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_SH71cLGsEeacutPMXXcEdA" name="m_listeIDUtilisateurs" visibility="public" isStatic="true">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EMap"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SH8cgLGsEeacutPMXXcEdA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SH9DkLGsEeacutPMXXcEdA" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_ZWdcMLGtEeacutPMXXcEdA" name="SingletonBD" visibility="private">
+      <ownedParameter xmi:id="_biqOALGtEeacutPMXXcEdA" name="context">
+        <type xmi:type="uml:Association" href="pathmap://UML_METAMODELS/UML.metamodel.uml#A_context_action"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_gh4hELGtEeacutPMXXcEdA" name="getInstance" isStatic="true">
+      <ownedParameter xmi:id="_lDRooLGtEeacutPMXXcEdA" type="_n0lkkLGrEeacutPMXXcEdA" direction="return">
+        <name xsi:nil="true"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_nt1xcLGtEeacutPMXXcEdA" name="context">
+        <type xmi:type="uml:Association" href="pathmap://UML_METAMODELS/UML.metamodel.uml#A_context_behavior"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_EGHOkLGuEeacutPMXXcEdA" name="getContentValues" isStatic="true">
+      <ownedParameter xmi:id="_GrofULGuEeacutPMXXcEdA" name="p_utilisateur" type="_ojtJ0LGqEeacutPMXXcEdA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_9rdC0LGuEeacutPMXXcEdA" name="queryUtilisateur" visibility="private">
+      <ownedParameter xmi:id="_AcYSULGvEeacutPMXXcEdA" name="whereClause">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_FCfh0LGvEeacutPMXXcEdA" name="whereArgs[]">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_LCFFsLGvEeacutPMXXcEdA" type="_41Op8K2sEeaIAtKalVUgrw">
+        <name xsi:nil="true"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_S88DcLGvEeacutPMXXcEdA" name="getNbUtilisateurs">
+      <ownedParameter xmi:id="_U95OkLGvEeacutPMXXcEdA">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_bV3dQLGvEeacutPMXXcEdA" name="addUtilisateur">
+      <ownedParameter xmi:id="_eZfmULGvEeacutPMXXcEdA" name="markerGoogle"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_i0RIgLGvEeacutPMXXcEdA" name="addUtilisateur">
+      <ownedParameter xmi:id="_5WYDgLGvEeacutPMXXcEdA" name="idMarker">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_BJ1YwLGwEeacutPMXXcEdA" name="idUtilisateur">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_BJhVwLMbEeaBs-TifgI-1g" name="deleteUtilisateurBD">
+      <ownedParameter xmi:id="_Jnj5ELMbEeaBs-TifgI-1g" name="p_id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_NixxcLMbEeaBs-TifgI-1g" name="deleteMarkerUtilisateur">
+      <ownedParameter xmi:id="_RAOIsLMbEeaBs-TifgI-1g" name="p_idMarker">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UJPvILMbEeaBs-TifgI-1g" name="updateUtilisateur">
+      <ownedParameter xmi:id="_VooeQLMbEeaBs-TifgI-1g" name="p_marker"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ZzCpMLMbEeaBs-TifgI-1g" name="getListeUtilisateurs">
+      <ownedParameter xmi:id="_a9wI0LMbEeaBs-TifgI-1g" name="List" type="_ojtJ0LGqEeacutPMXXcEdA" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ktrKwLMbEeaBs-TifgI-1g" name="MapActivity">
+    <ownedAttribute xmi:id="_0VvPULMcEeaBs-TifgI-1g" name="m_mode" visibility="private" type="_c9zfkLMcEeaBs-TifgI-1g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0Vv2YLMcEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0Vv2YbMcEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_ALShALMdEeaBs-TifgI-1g" name="m_map" visibility="private">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ALTvILMdEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ALTvIbMdEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_CsDNkLMdEeaBs-TifgI-1g" name="m_markerCourrant" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CsDNkbMdEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CsD0oLMdEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_nFaMQLMdEeaBs-TifgI-1g" name="m_utilisateur" visibility="public" type="_ojtJ0LGqEeacutPMXXcEdA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nFazULMdEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nFazUbMdEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_fbbtsLMeEeaBs-TifgI-1g" name="m_utilisateurEstModifie" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fbcUwLMeEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fbcUwbMeEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_tDQ_4LMfEeaBs-TifgI-1g" name="boutonModifier" visibility="private"/>
+    <ownedAttribute xmi:id="_Q7RlALMgEeaBs-TifgI-1g" name="singletonBD" visibility="public" type="_ojtJ0LGqEeacutPMXXcEdA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q7SMELMgEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q7SzILMgEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_HvB34LMgEeaBs-TifgI-1g" name="onCreate">
+      <ownedParameter xmi:id="_JKphULMgEeaBs-TifgI-1g" name="bundle"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_OfopALMgEeaBs-TifgI-1g" name="chargerMap" visibility="private"/>
+    <ownedOperation xmi:id="_evaDQLMgEeaBs-TifgI-1g" name="AffecterControles"/>
+    <ownedOperation xmi:id="_hbeA4LMgEeaBs-TifgI-1g" name="CreerListenerBoutons"/>
+    <ownedOperation xmi:id="_EofvULMhEeaBs-TifgI-1g" name="CreerBoutonModifier"/>
+    <ownedOperation xmi:id="_chuOQLMhEeaBs-TifgI-1g" name="CreerListenerMarker"/>
+    <ownedOperation xmi:id="_gVdloLMhEeaBs-TifgI-1g" name="ChangerMode">
+      <ownedParameter xmi:id="_i0o90LMhEeaBs-TifgI-1g" name="p_mode" type="_c9zfkLMcEeaBs-TifgI-1g"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mzCGALMhEeaBs-TifgI-1g" name="DialogueModification"/>
+    <ownedOperation xmi:id="_0rMIoLMhEeaBs-TifgI-1g" name="onResume"/>
+    <ownedOperation xmi:id="_6fHPELMhEeaBs-TifgI-1g" name="setUpMapIfNeeded"/>
+    <ownedOperation xmi:id="_8u_nALMhEeaBs-TifgI-1g" name="setUpMap"/>
+    <ownedOperation xmi:id="_Ellv0LMiEeaBs-TifgI-1g" name="DialogueInfoUtilisateur"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_c9zfkLMcEeaBs-TifgI-1g" name="Mode">
+    <ownedAttribute xmi:id="_nTNNILMcEeaBs-TifgI-1g" name="Aucun" visibility="public">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nTObQLMcEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nTObQbMcEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_n2cdELMcEeaBs-TifgI-1g" name="Information" visibility="public">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n2dEILMcEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n2drMLMcEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_oJXZELMcEeaBs-TifgI-1g" name="Modification" visibility="public">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oJYAILMcEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oJYAIbMcEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_DUU_cLMmEeaBs-TifgI-1g" name="LoginActivity">
+    <ownedAttribute xmi:id="_c45l4LMmEeaBs-TifgI-1g" name="boutonLogin"/>
+    <ownedAttribute xmi:id="_wbe0sLMmEeaBs-TifgI-1g" name="linkInscription" visibility="public">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wbgC0LMmEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wbgp4LMmEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_3q-hQLMmEeaBs-TifgI-1g" name="textBoxCompte" visibility="public">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3q-hQbMmEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3q_IULMmEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_4I2JALMmEeaBs-TifgI-1g" name="textBoxMotDePasse" visibility="public">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4I3XILMmEeaBs-TifgI-1g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4I3-MLMmEeaBs-TifgI-1g" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_Zt9T4LMmEeaBs-TifgI-1g" name="AffecterControles"/>
+    <ownedOperation xmi:id="_k7N2gLMmEeaBs-TifgI-1g" name="CreerListenerBouton"/>
+    <ownedOperation xmi:id="_rYA60LMmEeaBs-TifgI-1g" name="CreerBoutonLogin"/>
+    <ownedOperation xmi:id="_y0DOkLMmEeaBs-TifgI-1g" name="CreerListenerInscription"/>
+    <ownedOperation xmi:id="_0ubQkLMmEeaBs-TifgI-1g" name="CreerLinkInscription"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_HLMjULMmEeaBs-TifgI-1g" name="InscriptionActivity">
+    <ownedAttribute xmi:id="_aee8cLMnEeaBs-TifgI-1g" name="textBoxNomCompte"/>
+    <ownedAttribute xmi:id="_e1qYELMnEeaBs-TifgI-1g" name="textBoxMotDePasse"/>
+    <ownedAttribute xmi:id="_fQYlMLMnEeaBs-TifgI-1g" name="textBoxNom"/>
+    <ownedAttribute xmi:id="_fcVWgLMnEeaBs-TifgI-1g" name="textBoxPrenom"/>
+    <ownedAttribute xmi:id="_frRxcLMnEeaBs-TifgI-1g" name="textBoxEtablissementOrigine"/>
+    <ownedAttribute xmi:id="_f3tq8LMnEeaBs-TifgI-1g" name="textBoxNomVilleDeStage"/>
+    <ownedAttribute xmi:id="_0IVrgLMnEeaBs-TifgI-1g" name="textBoxRejoindre"/>
+    <ownedAttribute xmi:id="_hRmPALMnEeaBs-TifgI-1g" name="textBoxMultiligneCommentaire"/>
+    <ownedOperation xmi:id="_4BDCcbMnEeaBs-TifgI-1g" name="AffecterControles"/>
+    <ownedOperation xmi:id="_8bUOULMnEeaBs-TifgI-1g" name="CreerListenerBouton"/>
+    <ownedOperation xmi:id="_4BDCcLMnEeaBs-TifgI-1g" name="CreerLinkInscription"/>
+    <ownedOperation xmi:id="_4BDpgLMnEeaBs-TifgI-1g" name="CreerListenerInscription"/>
+    <ownedOperation xmi:id="_Cr1KILMoEeaBs-TifgI-1g" name="Operation_5"/>
+    <ownedOperation xmi:id="_DEorsLMoEeaBs-TifgI-1g" name="Operation_6"/>
+    <ownedOperation xmi:id="_2OTAgLMpEeaBs-TifgI-1g" name="Operation_5"/>
+    <ownedOperation xmi:id="_2OTnkLMpEeaBs-TifgI-1g" name="Operation_6"/>
+    <ownedOperation xmi:id="_2fmy8LMpEeaBs-TifgI-1g" name="Operation_5"/>
+    <ownedOperation xmi:id="_2fmy8bMpEeaBs-TifgI-1g" name="Operation_6"/>
+  </packagedElement>
+</uml:Model>
