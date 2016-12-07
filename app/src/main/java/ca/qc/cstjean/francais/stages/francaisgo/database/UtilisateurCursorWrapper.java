@@ -3,9 +3,6 @@ package ca.qc.cstjean.francais.stages.francaisgo.database;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 
-
-
-
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.UUID;
