@@ -5,10 +5,10 @@ package ca.qc.cstjean.francais.stages.francaisgo;
  * Chaque méthode doit être accédée dans un contexte statique car il n'y a aucun constructeur disponible.
  *
  * @author Mike Larrivée
- * @version 1.2
+ * @version 1.3
  * @see "https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149"
  */
-public class Validation {
+class Validation {
 
     /**
      * Constructeur privé. La classe sera accédée uniquement dans un contexte statique.
@@ -69,7 +69,9 @@ public class Validation {
     public static boolean estAlphaNumérique(String p_texte) {
         // Modification v1.1 : Ajout de l'espace pour le test d'alphaNumérique
         // Modification v1.2 : Ajout de caratères accentués
-        return p_texte.matches("^[a-zA-z0-9 éÉèÈàÀïÏîÎçÇôÔ]+$");
+        // Modification v1.3 : Correction d'un bug de l'inclusion de caractères ASCII de 65 a 122
+        //                      En raison du A-z (noter le z minuscule)
+        return p_texte.matches("^[a-zA-Z0-9 éÉèÈàÀïÏîÎçÇôÔ]+$");
     }
 
     /**

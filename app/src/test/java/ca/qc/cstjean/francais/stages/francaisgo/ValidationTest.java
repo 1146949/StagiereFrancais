@@ -27,7 +27,7 @@ public class ValidationTest {
         // La méthode doit retourner false
         assertFalse(Validation.stringNonVide(texteVide));
 
-        // La méthode doit retourne true
+        // La méthode doit retourner true
         assertTrue(Validation.stringNonVide(texteNonVide));
     }
 

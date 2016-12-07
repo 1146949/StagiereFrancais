@@ -9,7 +9,7 @@ package ca.qc.cstjean.francais.stages.francaisgo;
  * @see ca.qc.cstjean.francais.stages.francaisgo.Validation
  * @see ca.qc.cstjean.francais.stages.francaisgo.Utilisateur
  */
-public class ValidationCompte {
+class ValidationCompte {
 
     /**
      * Constructeur privé. La classe sera accédée uniquement dans un contexte statique.
