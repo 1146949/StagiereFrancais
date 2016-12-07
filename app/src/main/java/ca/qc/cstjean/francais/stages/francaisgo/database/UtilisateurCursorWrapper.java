@@ -36,6 +36,8 @@ public class UtilisateurCursorWrapper extends CursorWrapper {
         String uuidString = getString(getColumnIndex(UtilisateurTable.Colonnes.ID));
         double latitude = getDouble(getColumnIndex(UtilisateurTable.Colonnes.LATITUDE));
         double longitude = getDouble(getColumnIndex(UtilisateurTable.Colonnes.LONGITUDE));
+		String nomCompte = getString(ColumnIndex(UtilisateurTable.Colonnes.NOM_COMPTE));
+		String motDePasse = getString(ColumnIndex(UtilisateurTable.Colonnes.MOT_DE_PASSE));
         String nom = getString(getColumnIndex(UtilisateurTable.Colonnes.NOM));
         String prenom = getString(getColumnIndex(UtilisateurTable.Colonnes.PRENOM));
         String lieuStage = getString(getColumnIndex(UtilisateurTable.Colonnes.LIEU_STAGE));
@@ -45,7 +47,7 @@ public class UtilisateurCursorWrapper extends CursorWrapper {
 
 
         // recréée l'élément à partir de son ID et ajoute les valeurs qui étaient dans la base de données
-        return null; /*new Utilisateur(UUID.fromString(uuidString), new LatLng(latitude, longitude), nom,
-                               prenom, lieuStage, villeOrigine, contact, description );*/
+        return Utilisateur(UUID.fromString(uuidString), new LatLng(latitude, longitude), nomCompte, motDePasse, nom,
+                               prenom, lieuStage, villeOrigine, contact, description );
     }
 } // class ElementCursorWrapper
