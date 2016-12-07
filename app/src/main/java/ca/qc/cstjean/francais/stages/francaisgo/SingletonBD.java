@@ -208,12 +208,22 @@ public class SingletonBD {
      * @param p_motDePasse mot de passe hashé
      * @return un curseur encapsulé qui "pointe" sur la/les donnée(s) trouvées
      */
-    private UtilisateurCursorWrapper queryTestMdp(String p_id, String p_motDePasse) {
+    public UtilisateurCursorWrapper queryTestMdp(String p_id, String p_motDePasse) {
         Cursor cursor = m_database.rawQuery("SELECT COUNT(*) FROM " +
                 UtilisateurDbSchema.UtilisateurTable.NAME + " WHERE " +
                 Colonnes.MOT_DE_PASSE +
                 " = " + p_motDePasse + " AND " +
                 Colonnes.ID + " = " + p_id, null);
+
+        return new UtilisateurCursorWrapper(cursor);
+    }
+
+    public UtilisateurCursorWrapper queryTestUsername(String p_username, String p_motDePasse) {
+        Cursor cursor = m_database.rawQuery("SELECT COUNT(*) FROM " +
+                UtilisateurDbSchema.UtilisateurTable.NAME + " WHERE " +
+                Colonnes.MOT_DE_PASSE +
+                " = " + p_motDePasse + " AND " +
+                Colonnes.NOM_COMPTE + " = " + p_username, null);
 
         return new UtilisateurCursorWrapper(cursor);
     }
