@@ -3,6 +3,9 @@ package ca.qc.cstjean.francais.stages.francaisgo.database;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 
+
+
+
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.UUID;
@@ -35,8 +38,8 @@ public class UtilisateurCursorWrapper extends CursorWrapper {
         String uuidString = getString(getColumnIndex(UtilisateurTable.Colonnes.ID));
         double latitude = getDouble(getColumnIndex(UtilisateurTable.Colonnes.LATITUDE));
         double longitude = getDouble(getColumnIndex(UtilisateurTable.Colonnes.LONGITUDE));
-        String nomCompte = getString(getColumnIndex(UtilisateurTable.Colonnes.NOM_COMPTE));
-        String motDePasse = getString(getColumnIndex(UtilisateurTable.Colonnes.MOT_DE_PASSE));
+		String nomCompte = getString(getColumnIndex(UtilisateurTable.Colonnes.NOM_COMPTE));
+		String motDePasse = getString(getColumnIndex(UtilisateurTable.Colonnes.MOT_DE_PASSE));
         String nom = getString(getColumnIndex(UtilisateurTable.Colonnes.NOM));
         String prenom = getString(getColumnIndex(UtilisateurTable.Colonnes.PRENOM));
         String lieuStage = getString(getColumnIndex(UtilisateurTable.Colonnes.LIEU_STAGE));
@@ -46,7 +49,7 @@ public class UtilisateurCursorWrapper extends CursorWrapper {
 
 
         // recréée l'élément à partir de son ID et ajoute les valeurs qui étaient dans la base de données
-        return new Utilisateur(UUID.fromString(uuidString), new LatLng(latitude, longitude), nom,
-                               prenom, lieuStage, villeOrigine, contact, description);
+        return new Utilisateur(UUID.fromString(uuidString), new LatLng(latitude, longitude), nomCompte, motDePasse, nom,
+                               prenom, lieuStage, villeOrigine, contact, description );
     }
 } // class ElementCursorWrapper

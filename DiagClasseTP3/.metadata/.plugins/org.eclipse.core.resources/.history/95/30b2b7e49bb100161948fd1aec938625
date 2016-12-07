@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_A9IaoK2sEeaIAtKalVUgrw" name="NewModel">
+  <packageImport xmi:id="_MQ6xIK2uEeaIAtKalVUgrw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_kiqIoK2sEeaIAtKalVUgrw" name="BaseDeDonnees">
+    <packagedElement xmi:type="uml:Class" xmi:id="_b__kAK2sEeaIAtKalVUgrw" name="BaseHelper">
+      <ownedAttribute xmi:id="_AcIJ4K2tEeaIAtKalVUgrw" name="Version" visibility="private" isStatic="true" isReadOnly="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_kTM64K2tEeaIAtKalVUgrw" name="DATABASE_NAME" isLeaf="true" isStatic="true" isReadOnly="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_xLwhsK2tEeaIAtKalVUgrw" name="BaseHelper">
+        <ownedParameter xmi:id="_zuoHEK2tEeaIAtKalVUgrw" name="p_contexte"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_cbFSoK2uEeaIAtKalVUgrw" name="onUpgrade">
+        <ownedParameter xmi:id="_gkmFsK2uEeaIAtKalVUgrw" name="db"/>
+        <ownedParameter xmi:id="_lzfzgK2uEeaIAtKalVUgrw" name="oldVersion">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_EAdhYK2vEeaIAtKalVUgrw" name="onCreate">
+        <ownedParameter xmi:id="_FSDFEK2vEeaIAtKalVUgrw" name="db"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_4ekdcK2sEeaIAtKalVUgrw" name="DbSchema"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_41Op8K2sEeaIAtKalVUgrw" name="CursorWrapper">
+      <ownedOperation xmi:id="_NlVw8K2vEeaIAtKalVUgrw" name="CursorWrapper">
+        <ownedParameter xmi:id="_P-tcEK2vEeaIAtKalVUgrw" name="cursor"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_TfolIK2vEeaIAtKalVUgrw" name="getMarqueur"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_geKREK2vEeaIAtKalVUgrw" name="MarqueurTable"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_pjdBoK2vEeaIAtKalVUgrw" name="Colonnes">
+    <ownedAttribute xmi:id="_siMqsK2vEeaIAtKalVUgrw" name="ID"/>
+    <ownedAttribute xmi:id="_5Rqm8K2vEeaIAtKalVUgrw" name="compteUtilisateur"/>
+    <ownedAttribute xmi:id="_612WgK2vEeaIAtKalVUgrw" name="motDePasse"/>
+    <ownedAttribute xmi:id="__YDWYK2vEeaIAtKalVUgrw" name="prenom"/>
+    <ownedAttribute xmi:id="_AXG_oK2wEeaIAtKalVUgrw" name="nom"/>
+    <ownedAttribute xmi:id="_BBgAcK2wEeaIAtKalVUgrw" name="etablissementOrigine"/>
+    <ownedAttribute xmi:id="_CXp7EK2wEeaIAtKalVUgrw" name="lieuDeStage"/>
+    <ownedAttribute xmi:id="_EI3aAK2wEeaIAtKalVUgrw" name="numeroTelephone"/>
+    <ownedAttribute xmi:id="_H2sWoK2wEeaIAtKalVUgrw" name="adresseCourriel"/>
+    <ownedAttribute xmi:id="_JoPz0K2wEeaIAtKalVUgrw" name="Commentaire"/>
+    <ownedAttribute xmi:id="_bT-1wK2wEeaIAtKalVUgrw" name="LATTITUDE"/>
+    <ownedAttribute xmi:id="_ejNK0K2wEeaIAtKalVUgrw" name="LONGITUDE"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tLaxYK2wEeaIAtKalVUgrw" name="Validation">
+    <ownedOperation xmi:id="_zhdGYK2wEeaIAtKalVUgrw" name="stringNonVide" isStatic="true">
+      <ownedParameter xmi:id="_4McO0K2wEeaIAtKalVUgrw" name="p_texte">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_-Tz1sK2wEeaIAtKalVUgrw" direction="return">
+        <name xsi:nil="true"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_DNN0oK2xEeaIAtKalVUgrw" name="tailleMinimum" isStatic="true">
+      <ownedParameter xmi:id="_EyMOYK2xEeaIAtKalVUgrw" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Gv7GYK2xEeaIAtKalVUgrw" name="p_texte">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_JCtoYK2xEeaIAtKalVUgrw" name="p_minimum">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_OAei4K2xEeaIAtKalVUgrw" name="tailleMaximum" isStatic="true">
+      <ownedParameter xmi:id="_PtzAUK2xEeaIAtKalVUgrw" direction="return">
+        <name xsi:nil="true"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_TbYsYK2xEeaIAtKalVUgrw" name="p_texte">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_WJG24K2xEeaIAtKalVUgrw" name="p_maximum">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_AknlQK2yEeaIAtKalVUgrw" name="saisieTexteIntervalle" isStatic="true">
+      <ownedParameter xmi:id="_HIHugK2yEeaIAtKalVUgrw" name="p_texte">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Jko0QK2yEeaIAtKalVUgrw" name="p_minimum">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_QWmQQK2yEeaIAtKalVUgrw" name="p_maximum">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_3S0NQK2yEeaIAtKalVUgrw" name="formatTelephone" isStatic="true">
+      <ownedParameter xmi:id="_5MV6sK2yEeaIAtKalVUgrw" name="p_numeroTelephone">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+</uml:Model>
