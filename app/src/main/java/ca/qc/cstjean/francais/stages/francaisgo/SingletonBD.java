@@ -21,7 +21,7 @@ import static ca.qc.cstjean.francais.stages.francaisgo.database.UtilisateurDbSch
 
 /**
  * Description : Classe permettant les query sur la base de donnés
- * @author Alexis Richer et Francis Prairie
+ * @author Alexis Richer, Francis Prairie, Anthony Longtin
  * Date de création : 7 décembre 2016
  * Date de dernière modification : 7 décembre 2016
  */
@@ -78,6 +78,22 @@ public class SingletonBD {
         return values;
     }
 
+    private static ContentValues getContentValues(Utilisateur p_utilisateur) {
+        ContentValues values = new ContentValues();
+
+        values.put(Colonnes.ID, p_utilisateur.getID().toString());
+        values.put(Colonnes.LATITUDE, p_utilisateur.getPosition().latitude);
+        values.put(Colonnes.LONGITUDE, p_utilisateur.getPosition().longitude);
+        values.put(Colonnes.NOM, p_utilisateur.getNom());
+        values.put(Colonnes.PRENOM, p_utilisateur.getPrenom());
+        values.put(Colonnes.LIEU_STAGE, p_utilisateur.getLieuDeStage());
+        values.put(Colonnes.VILLE_ORIGINE, p_utilisateur.getVilleOrigine());
+        values.put(Colonnes.CONTACT, p_utilisateur.getContact());
+        values.put(Colonnes.DESCRIPTION, p_utilisateur.getDescription());
+
+        return values;
+    }
+
     /**
      * exécute une requête sur la base de données
      *
@@ -126,15 +142,14 @@ public class SingletonBD {
     }
 
     /**
-     * met à jour un Marqueur de la base de données (ne modifie pas l'id de celui-ci)
      *
-     * @param p_marqueur Marqueur modifié, son identifiant doit être le bon et exister (Marker)
+     * @param p_utilisateur
      */
-    public void updateUtilisateur(Marker p_marqueur) {
+    public void updateUtilisateur(Utilisateur p_utilisateur) {
         // va chercher les valeurs du marqueur pour pouvoir remplacer les informations dans la base de données
         // note : on va chercher l'id du marqueur de la base de données (UUID) avec celui de la Google Map (String)
         // on se sert ensuite de ce UUID pour mettre l'information à jour dans la base de données
-        ContentValues values = getContentValues(p_marqueur, m_listeIDUtilisateurs.get(p_marqueur.getId()));
+        ContentValues values = getContentValues(p_utilisateur);
         assert values != null;
         String uuidString = values.get(Colonnes.ID).toString();
 
@@ -177,7 +192,7 @@ public class SingletonBD {
      *
      * @return la liste d'utilisateurs
      */
-    public List<Utilisateur> getListeMarqueurs() {
+    public List<Utilisateur> getListeUtilisateurs() {
         List<Utilisateur> marqueurs = new ArrayList<>(); // créée un ArrayList (dérive de List)
 
         // créée un curseur Encapsulé à partir d'une requête sur toute la table (SELECT * FROM ...)

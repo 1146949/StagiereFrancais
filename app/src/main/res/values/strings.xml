@@ -6,4 +6,6 @@
     <string name="bouton_connexion">Connexion</string>
     <string name="description_accueil">Francais GO est une application Android basée sur google map pour retrouver d'autres francais</string>
     <string name="title_activity_maps">Map</string>
+    <string name="fragment_carte_BoutonModification">Modifier vos information</string>
+    <string name="fragment_carte_BoutonSelection">Voir les informations</string>
 </resources>

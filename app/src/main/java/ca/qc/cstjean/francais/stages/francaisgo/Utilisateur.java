@@ -70,6 +70,14 @@ public class Utilisateur {
     }
 
     /**
+     * Change la position de l'utilisateur avec la position passé en paramètre
+     * @param p_pos la position de l'utilisateur
+     */
+    public void setPosition(LatLng p_pos) {
+        Position = p_pos;
+    }
+
+    /**
      * Accesseur du prenom, (peut n'avoir aucune valeur... attention)
      * @return nom de l'utilisateur
      */
