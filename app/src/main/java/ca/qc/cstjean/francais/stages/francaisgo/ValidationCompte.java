@@ -5,7 +5,7 @@ package ca.qc.cstjean.francais.stages.francaisgo;
  * Permet la validation de tous les champs d'un utilisateur.
  *
  * @author Mike Larrivée
- * @version 1.0
+ * @version 1.2
  * @see ca.qc.cstjean.francais.stages.francaisgo.Validation
  * @see ca.qc.cstjean.francais.stages.francaisgo.Utilisateur
  */
@@ -17,13 +17,31 @@ public class ValidationCompte {
     private ValidationCompte() {}
 
     /**
+     * Méthode privé qui fait la validation d'un texte de base.
+     * Cette validation vérifie que le texte est compris dans une intervalle et qu'il n'est
+     * composé que de caractères alphanumériques.
+     *
+     * @param p_texte le texte à vérifier.
+     * @param p_min la taille minimum.
+     * @param p_max la taille maximum.
+     * @return vrai si le texte est valide.
+     * @since 1.2
+     */
+    private static boolean validerStringBase(String p_texte, int p_min, int p_max) {
+        // Modification v1.1 : Ajout du test estAlphaNumérique
+        return Validation.saisieTexteIntervalle(p_texte, p_min, p_max) &&
+                Validation.estAlphaNumérique(p_texte);
+    }
+
+    /**
      * Indique si le nom de compte d'un utilisateur est valide.
      *
      * @param p_nomCompte le nom de compte de l'utilisateur.
      * @return vrai si le nom de compte est valide.
      */
     public static boolean validerNomCompte(String p_nomCompte) {
-        return Validation.saisieTexteIntervalle(p_nomCompte, 3, 16);
+        // Modification v1.2 : Refactoring pour du code plus réutilisable
+        return validerStringBase(p_nomCompte, 3, 16);
     }
 
     /**
@@ -33,7 +51,8 @@ public class ValidationCompte {
      * @return vrai si le mot de passe est valide.
      */
     public static boolean validerMotDePasse(String p_motDePasse) {
-        return Validation.saisieTexteIntervalle(p_motDePasse, 8, 16);
+        // Modification v1.2 : Refactoring pour du code plus réutilisable
+        return validerStringBase(p_motDePasse, 8, 16);
     }
 
     /**
@@ -43,7 +62,8 @@ public class ValidationCompte {
      * @return vrai si le nom est valide.
      */
     public static boolean validerNom(String p_nom) {
-        return Validation.saisieTexteIntervalle(p_nom, 2, 16);
+        // Modification v1.2 : Refactoring pour du code plus réutilisable
+        return validerStringBase(p_nom, 2, 16);
     }
 
     /**
@@ -53,7 +73,8 @@ public class ValidationCompte {
      * @return vrai si le prénom est valide.
      */
     public static boolean validerPrenom(String p_prenom) {
-        return Validation.saisieTexteIntervalle(p_prenom, 2, 16);
+        // Modification v1.2 : Refactoring pour du code plus réutilisable
+        return validerStringBase(p_prenom, 2, 16);
     }
 
     /**
@@ -63,7 +84,8 @@ public class ValidationCompte {
      * @return vrai si l'établissement d'origine est valide.
      */
     public static boolean validerEtablissementOrigine(String p_etablissement) {
-        return Validation.saisieTexteIntervalle(p_etablissement, 5, 30);
+        // Modification v1.2 : Refactoring pour du code plus réutilisable
+        return validerStringBase(p_etablissement, 5, 30);
     }
 
     /**
@@ -73,7 +95,8 @@ public class ValidationCompte {
      * @return vrai si la ville de stage est valide.
      */
     public static boolean validerVilleStage(String p_ville) {
-        return Validation.saisieTexteIntervalle(p_ville, 5, 30);
+        // Modification v1.2 : Refactoring pour du code plus réutilisable
+        return validerStringBase(p_ville, 5, 30);
     }
 
     /**
@@ -95,7 +118,8 @@ public class ValidationCompte {
      * @return vrai si le commentaire est valide.
      */
     public static boolean validerCommentaire(String p_commentaire) {
-        return Validation.saisieTexteIntervalle(p_commentaire, 1, 30);
+        // Modification v1.2 : Refactoring pour du code plus réutilisable
+        return validerStringBase(p_commentaire, 0, 30);
     }
 
     /**

@@ -45,7 +45,7 @@ public class UtilisateurCursorWrapper extends CursorWrapper {
 
 
         // recréée l'élément à partir de son ID et ajoute les valeurs qui étaient dans la base de données
-        return new Utilisateur(UUID.fromString(uuidString), new LatLng(latitude, longitude), nom,
-                               prenom, lieuStage, villeOrigine, contact, description );
+        return null; /*new Utilisateur(UUID.fromString(uuidString), new LatLng(latitude, longitude), nom,
+                               prenom, lieuStage, villeOrigine, contact, description );*/
     }
 } // class ElementCursorWrapper

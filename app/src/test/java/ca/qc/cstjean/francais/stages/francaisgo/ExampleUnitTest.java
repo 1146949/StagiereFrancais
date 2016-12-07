@@ -10,7 +10,7 @@ public class ExampleUnitTest {
     @Test
     public void ValidationCreationUtilisateur() {
         Utilisateur usager1 =
-                new Utilisateur(UUID.randomUUID(), new LatLng(1,1), "Richer", "Alexis", "Montréal",
+                new Utilisateur(UUID.randomUUID(), new LatLng(1,1), "Richer101", "motPasseBeton", "Richer", "Alexis", "Montréal",
                                 "Lyons", "(444)444-1234", "Bonjour!");
 
         assertEquals(usager1.getNom(), "Richer");
