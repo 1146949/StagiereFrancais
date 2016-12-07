@@ -6,7 +6,7 @@
     <string name="mot_passe">Mot de passe :</string>
     <string name="nom">Nom :</string>
     <string name="prenom">Prénom :</string>
-    <string name="etablisseent_origine">Établissement d'origine :</string>
+    <string name="etablisseent_origine">Établissement d\'origine :</string>
     <string name="endroit_stage">Nom de la ville où ce situe votre stage :</string>
     <string name="joindre">Pour me jouindre :</string>
     <string name="commentaire">Commentaires (facultatif) :</string>
