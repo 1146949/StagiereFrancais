@@ -385,9 +385,8 @@ public class InscriptionFragment extends Fragment{
                     });
 
                     marker.setPosition(newUser.getPosition());
-                    marker.
 
-                    m_bd.addUtilisateur(marker);
+                    m_bd.addUtilisateur(newUser, marker);
                     closeFragment();
                 }
                 else{
