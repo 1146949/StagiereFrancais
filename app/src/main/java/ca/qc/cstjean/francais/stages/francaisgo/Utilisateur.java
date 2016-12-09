@@ -2,6 +2,7 @@ package ca.qc.cstjean.francais.stages.francaisgo;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 /**
@@ -11,7 +12,7 @@ import java.util.UUID;
  * Date de création : 30 novembre 2016
  * Date de dernière modification : 30 novembre 2016
  */
-public class Utilisateur {
+public class Utilisateur implements Serializable {
 
     private UUID ID;
     private LatLng Position;
