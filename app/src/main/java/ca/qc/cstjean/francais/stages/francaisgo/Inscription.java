@@ -8,7 +8,8 @@ import android.support.v4.app.Fragment;
 
 public class Inscription {
 
-    protected Fragment createFragment() {
+protected Fragment createFragment()
+    {
         return new InscriptionFragment();
     }
 }
