@@ -2,6 +2,8 @@ package ca.qc.cstjean.francais.stages.francaisgo;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,8 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.dynamic.zzd;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.internal.zzf;
 
 import java.util.UUID;
 
@@ -220,7 +225,168 @@ public class InscriptionFragment extends Fragment{
                             m_motDePasse, m_nom, m_prenom, m_nomVilleStage, m_etablissementOrigine,
                             m_rejoindre, m_comentaire);
 
-                    Marker marker = new Marker();
+                    // Pour pouvoir passer l'utilisateur la fonction est longue et n'a rien de
+                    // différent ou de nouveau
+                    Marker marker = new Marker(new zzf() {
+                        @Override
+                        public void remove() throws RemoteException {
+
+                        }
+
+                        @Override
+                        public String getId() throws RemoteException {
+                            return null;
+                        }
+
+                        @Override
+                        public void setPosition(LatLng latLng) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public LatLng getPosition() throws RemoteException {
+                            return null;
+                        }
+
+                        @Override
+                        public void setTitle(String s) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public String getTitle() throws RemoteException {
+                            return null;
+                        }
+
+                        @Override
+                        public void setSnippet(String s) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public String getSnippet() throws RemoteException {
+                            return null;
+                        }
+
+                        @Override
+                        public void setDraggable(boolean b) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public boolean isDraggable() throws RemoteException {
+                            return false;
+                        }
+
+                        @Override
+                        public void showInfoWindow() throws RemoteException {
+
+                        }
+
+                        @Override
+                        public void hideInfoWindow() throws RemoteException {
+
+                        }
+
+                        @Override
+                        public boolean isInfoWindowShown() throws RemoteException {
+                            return false;
+                        }
+
+                        @Override
+                        public void setVisible(boolean b) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public boolean isVisible() throws RemoteException {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean zzj(zzf zzf) throws RemoteException {
+                            return false;
+                        }
+
+                        @Override
+                        public int hashCodeRemote() throws RemoteException {
+                            return 0;
+                        }
+
+                        @Override
+                        public void zzak(zzd zzd) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public void setAnchor(float v, float v1) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public void setFlat(boolean b) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public boolean isFlat() throws RemoteException {
+                            return false;
+                        }
+
+                        @Override
+                        public void setRotation(float v) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public float getRotation() throws RemoteException {
+                            return 0;
+                        }
+
+                        @Override
+                        public void setInfoWindowAnchor(float v, float v1) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public void setAlpha(float v) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public float getAlpha() throws RemoteException {
+                            return 0;
+                        }
+
+                        @Override
+                        public void setZIndex(float v) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public float getZIndex() throws RemoteException {
+                            return 0;
+                        }
+
+                        @Override
+                        public void zzal(zzd zzd) throws RemoteException {
+
+                        }
+
+                        @Override
+                        public zzd zzbpo() throws RemoteException {
+                            return null;
+                        }
+
+                        @Override
+                        public IBinder asBinder() {
+                            return null;
+                        }
+                    });
+
+                    marker.setPosition(newUser.getPosition());
+                    marker.
+
                     m_bd.addUtilisateur(marker);
                     closeFragment();
                 }

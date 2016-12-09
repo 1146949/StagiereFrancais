@@ -14,7 +14,6 @@ import java.util.UUID;
 
 public class Inscription {
 
-    @Override
     protected Fragment createFragment()
     {
         return new InscriptionFragment();
