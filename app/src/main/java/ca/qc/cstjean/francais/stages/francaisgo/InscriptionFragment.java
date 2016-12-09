@@ -216,6 +216,9 @@ public class InscriptionFragment extends Fragment{
         });
     }
 
+    /**
+     * Creer un listener pour l'ajout d'un nouvel utilisateur dans la bd
+     */
     private void creerListenerBoutonConfirmer(){
         m_boutonConfirmer.setOnClickListener(new View.OnClickListener() {
             @Override
