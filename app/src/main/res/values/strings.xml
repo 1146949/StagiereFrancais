@@ -20,4 +20,5 @@
     <string name="commentaire">Commentaires (facultatif) :</string>
     <string name="bouton_confirmer">Créer compte</string>
     <string name="bouton_annuler">Annuler</string>
+    <string name="champs_invalide">Les champs ne sont pas valide</string>
 </resources>
