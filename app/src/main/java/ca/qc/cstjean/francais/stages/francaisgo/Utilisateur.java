@@ -59,12 +59,37 @@ public class Utilisateur implements Serializable {
         return ID;
     }
 
+    public void setNom(String p_nom) {
+        Nom = p_nom;
+    }
+
+    public void setPrenom(String p_prenom) {
+        Prenom = p_prenom;
+    }
+
+    public void setLieuDeStage(String p_lieuDeStage) {
+        LieuDeStage = p_lieuDeStage;
+    }
+
+    public void setEtablissementOrigine(String p_villeOrigine) {
+        VilleOrigine = p_villeOrigine;
+    }
+
+    public void setContact(String p_contact) {
+        Contact = p_contact;
+    }
+
+    public void setDescription(String p_description) {
+        Description = p_description;
+    }
+
     /**
      * Accesseur de la postition
      * @return position de l'utilisateur (LatLng)
      */
     public LatLng getPosition() {
         return Position;
+
     }
 
     /**

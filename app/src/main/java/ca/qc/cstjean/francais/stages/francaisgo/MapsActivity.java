@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -20,13 +21,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        m_map = googleMap;
-        setUpMap();
-    }
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     public enum Mode {
         Aucun, Selection
@@ -35,6 +34,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Mode m_mode = Mode.Aucun;
     private GoogleMap m_map;
     private Marker m_marqueurCourant; // marqueur sélectionné par l'utilisateur
+    private List<Marker> m_listeMarkers = new ArrayList<>(); // marqueurs
     private Utilisateur m_utilisateurCourrant; // Utilisateur courrant
     private Utilisateur m_utilisateurSelectionne; // Utilisateur selectionné
     private boolean m_marqueurEstModifie = false; // indique si le marqueur courant a été modifié
@@ -47,6 +47,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private SingletonBD m_singletonBD;
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        m_map = googleMap;
+        m_singletonBD.viderBD();
+        AjouterMarker(m_utilisateurCourrant);
+        setUpMap();
+
+    }
+
     /**
      * Méthode appelée lors de la création de l'activité
      *
@@ -56,6 +65,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        Utilisateur util1 = new Utilisateur(UUID.randomUUID(), new LatLng(0,0), "bob", "Poutine1", "Boby", "lol", "Montréal", "Université Lyon", "282-222-2222", "Je suis cool");
+        m_utilisateurCourrant = util1;
 
         m_singletonBD = SingletonBD.getInstance(getApplicationContext());
         setUpMapIfNeeded();
@@ -76,6 +87,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void AffecterControles() {
         m_boutonModification = (Button) findViewById(R.id.carte_boutonModifier);
         m_boutonSelection = (Button) findViewById(R.id.carte_affichageSelection);
+        CreerListenersBoutons();
+    }
+
+    private void AjouterMarker(Utilisateur p_utilisateur) {
+        Marker newMarker = m_map.addMarker(new MarkerOptions().position(p_utilisateur.getPosition()));
+        m_listeMarkers.add(newMarker);
+        newMarker.setTitle(p_utilisateur.getPrenom() + " " + p_utilisateur.getNom());
+        m_singletonBD.addUtilisateur(p_utilisateur, newMarker);
     }
 
     /**
@@ -110,7 +129,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         final EditText nom = (EditText) dialog.findViewById(R.id.editTextNom);
         final EditText prenom = (EditText) dialog.findViewById(R.id.editTextPrenom);
         final EditText etablissementOrigine = (EditText) dialog.findViewById(R.id.editTextEtablissementOrigine);
-        final EditText ville = (EditText) dialog.findViewById(R.id.editTextVille);
+        final EditText villeStage = (EditText) dialog.findViewById(R.id.editTextVille);
         final EditText contact = (EditText) dialog.findViewById(R.id.editTextContact);
         final EditText description = (EditText) dialog.findViewById(R.id.editTextDescription);
         final Button btnValiderModif = (Button) dialog.findViewById(R.id.button_ok_dialog_modif);
@@ -119,32 +138,48 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         nom.setText(m_utilisateurCourrant.getNom());
         prenom.setText(m_utilisateurCourrant.getPrenom());
         etablissementOrigine.setText(m_utilisateurCourrant.getVilleOrigine());
-        ville.setText(m_utilisateurCourrant.getLieuDeStage());
+        villeStage.setText(m_utilisateurCourrant.getLieuDeStage());
         contact.setText(m_utilisateurCourrant.getContact());
         description.setText(m_utilisateurCourrant.getDescription());
 
         btnValiderModif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String txtNom = nom.getText().toString();
+                String txtPrenom = prenom.getText().toString();
+                String txtEtablissement = etablissementOrigine.getText().toString();
+                String txtLieuStage = villeStage.getText().toString();
+                String txtContact = contact.getText().toString();
+                String txtDescription = description.getText().toString();
                 //TODO Insérer les validations d'un utilisateur ici
-                //if (!ValiderUtilisateur.ValiderMarqueur(v.getContext(), m_nom, m_description)) {
-                //    return;
-                //}
+                if (!ValidationCompte.validerModificationCompte(MapsActivity.this, txtNom, txtPrenom,
+                    txtLieuStage, txtEtablissement, txtContact, txtDescription)) {
+                    return;
+                }
 
                 // on enregistre dans deux variables le nouveau nom et description
                 // et on affiche les nouvelles informations dans la zone d'information,
                 // mais on ne touche pas au marqueur pour l'instant
-                //m_utilisateurCourrant.setNom(nom.getText().toString());
-                //m_utilisateurCourrant.setPrenom(prenom.getText().toString());
-                //m_utilisateurCourrant.setEtablissement(etablissementOrigine.getText().toString());
-                //m_utilisateurCourrant.setVilleStage(ville.getText().toString());
-                //m_utilisateurCourrant.setContact(ville.getText().toString());
-                //m_utilisateurCourrant.setDescription(description.getText().toString());
+                m_utilisateurCourrant.setNom(nom.getText().toString());
+                m_utilisateurCourrant.setPrenom(prenom.getText().toString());
+                m_utilisateurCourrant.setEtablissementOrigine(etablissementOrigine.getText().toString());
+                m_utilisateurCourrant.setLieuDeStage(villeStage.getText().toString());
+                m_utilisateurCourrant.setContact(contact.getText().toString());
+                m_utilisateurCourrant.setDescription(description.getText().toString());
 
-                //m_singletonBD.updateUtilisateur(m_utilisateurCourrant);
+                m_singletonBD.updateUtilisateur(m_utilisateurCourrant);
+
+                Marker m = getMarker(m_singletonBD.getIDMarker(m_utilisateurCourrant.getID()));
+
+                if (m != null){
+                    m.setTitle(m_utilisateurCourrant.getPrenom() + " " + m_utilisateurCourrant.getNom());
+                    m.showInfoWindow();
+                    m_map.animateCamera(CameraUpdateFactory.newLatLng(m_utilisateurCourrant.getPosition()), 250, null);
+                }
 
                 // Ferme le fialogue
                 dialog.cancel();
+
             }
         });
 
@@ -154,6 +189,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 dialog.cancel();
             }
         });
+    }
+
+    private Marker getMarker(String p_idMarker) {
+        for (Marker m: m_listeMarkers) {
+            if (m.getId().equals(p_idMarker))
+                return m;
+        }
+        return null;
     }
 
     /**
@@ -200,6 +243,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ville.setEnabled(false);
         contact.setEnabled(false);
         description.setEnabled(false);
+        btnValiderModif.setText("FERMER");
 
         btnAnnulerModif.setVisibility(View.GONE);
 
@@ -302,8 +346,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void ChargerMap() {
         for (Utilisateur utilisateur : m_singletonBD.getListeUtilisateurs()) {
             Marker marqueurMap = m_map.addMarker(new MarkerOptions()
-                    .title(utilisateur.getPrenom() + utilisateur.getNom())
+                    .title(utilisateur.getPrenom() + " " + utilisateur.getNom())
                     .position(utilisateur.getPosition()));
+            m_listeMarkers.add(marqueurMap);
             // cette ligne fait le lien entre la base de données et la map de Google.
             m_singletonBD.addUtilisateur(marqueurMap.getId(), utilisateur.getID());
         }

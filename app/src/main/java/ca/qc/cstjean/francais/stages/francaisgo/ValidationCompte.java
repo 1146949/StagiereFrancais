@@ -1,5 +1,7 @@
 package ca.qc.cstjean.francais.stages.francaisgo;
 
+import android.content.Context;
+
 /**
  * Classe de validation spécifique à un utilisateur.
  * Permet la validation de tous les champs d'un utilisateur.
@@ -130,18 +132,18 @@ class ValidationCompte {
      * @param p_nom le nom de l'utilisateur.
      * @param p_prenom le prénom de l'utilisateur.
      * @param p_lieuStage la ville de stage de l'utilisateur.
-     * @param p_villeOrigine l'établissement d'origine de l'utilisateur.
+     * @param p_etablissementOrigine l'établissement d'origine de l'utilisateur.
      * @param p_contact l'information de contact de l'utilisateur.
      * @param p_description le commentaire de l'utilisateur.
      * @return vrai si toutes les informations sont valides.
      */
     public static boolean validerCreationCompte(String p_nomCompte, String p_motDePasse, String p_nom,
-                                                String p_prenom, String p_lieuStage, String p_villeOrigine,
+                                                String p_prenom, String p_lieuStage, String p_etablissementOrigine,
                                                 String p_contact, String p_description) {
         return validerNomCompte(p_nomCompte) &&
                 validerMotDePasse(p_motDePasse) &&
                 validerNom(p_nom) && validerPrenom(p_prenom) &&
-                validerEtablissementOrigine(p_villeOrigine) &&
+                validerEtablissementOrigine(p_etablissementOrigine) &&
                 validerVilleStage(p_lieuStage) &&
                 validerCommentaire(p_description) &&
                 validerJoindre(p_contact);
@@ -151,14 +153,14 @@ class ValidationCompte {
      * Indique si les informations relatifs à la modification d'un utilisateur sont valides.
      *
      * @param p_lieuStage la ville de stage de l'utilisateur.
-     * @param p_villeOrigine l'établissement d'origine de l'utilisateur.
+     * @param p_etablissementOrigine l'établissement d'origine de l'utilisateur.
      * @param p_contact l'information de contact de l'utilisateur.
      * @param p_description le commentaire de l'utilisateur.
      * @return vrai si toutes les informations sont valides.
      */
-    public static boolean validerModificationCompte(String p_lieuStage, String p_villeOrigine,
+    public static boolean validerModificationCompte(Context p_context, String p_nom, String p_prenom, String p_lieuStage, String p_etablissementOrigine,
                                                     String p_contact, String p_description) {
-        return validerVilleStage(p_lieuStage) && validerEtablissementOrigine(p_villeOrigine) &&
+        return validerNom(p_nom) && validerPrenom(p_prenom) && validerVilleStage(p_lieuStage) && validerEtablissementOrigine(p_etablissementOrigine) &&
                 validerJoindre(p_contact) && validerCommentaire(p_description);
     }
 }

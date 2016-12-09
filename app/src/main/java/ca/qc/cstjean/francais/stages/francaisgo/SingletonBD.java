@@ -116,18 +116,18 @@ public class SingletonBD {
     }
 
     /**
-     * Ajoute un Marqueur dans la base de données en faisant un "insert"
+     * Ajoute un Utilisateur dans la base de données en faisant un "insert"
      *
-     * @param p_marqueur Marqueur à ajouter (Marker)
+     * @param p_utilisateur Marqueur à ajouter (Marker)
      */
-    public void addUtilisateur(Marker p_marqueur) {
+    public void addUtilisateur(Utilisateur p_utilisateur, Marker p_marker) {
         // va chercher les valeurs du marqueur pour pouvoir les mettres dans la base de données
-        ContentValues values = getContentValues(p_marqueur, UUID.randomUUID());
+        ContentValues values = getContentValues(p_utilisateur);
 
         // insère les valeurs dans la table InfoMarqueurTable.NAME
         m_database.insert(UtilisateurTable.NAME, null, values);
         assert values != null;
-        m_listeIDUtilisateurs.put(p_marqueur.getId(), UUID.fromString((String) values.get(Colonnes.ID)));
+        m_listeIDUtilisateurs.put(p_marker.getId(), UUID.fromString((String) values.get(Colonnes.ID)));
     }
 
     /**
@@ -263,5 +263,18 @@ public class SingletonBD {
         }
 
         return utilisateur;
+    }
+
+    public String getIDMarker(UUID p_idUtilisateur){
+        for (String s: m_listeIDUtilisateurs.keySet()) {
+            if (m_listeIDUtilisateurs.get(s).equals(p_idUtilisateur))
+                return s;
+        }
+        return null;
+    }
+
+    public void viderBD(){
+        m_database.delete(UtilisateurTable.NAME, null, null);
+        m_listeIDUtilisateurs.clear();
     }
 }
