@@ -88,7 +88,10 @@ public class Utilisateur implements Serializable {
     }
 
     /**
+<<<<<<< HEAD
      * Accesseur du prenom
+=======
+     * Change la position de l'utilisateur avec la position passé en paramètre
      * @param p_pos la position de l'utilisateur
      */
     public void setPosition(LatLng p_pos) {
@@ -96,6 +99,8 @@ public class Utilisateur implements Serializable {
     }
 
     /**
+     * Accesseur du prenom, (peut n'avoir aucune valeur... attention)
+>>>>>>> origin/MapsActivity
      * @return nom de l'utilisateur
      */
     public String getPrenom() {

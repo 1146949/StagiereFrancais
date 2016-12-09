@@ -232,6 +232,7 @@ public class SingletonBD {
         return new UtilisateurCursorWrapper(cursor);
     }
 
+<<<<<<< HEAD
     public UtilisateurCursorWrapper queryTestUsername(String p_username, String p_motDePasse) {
         Cursor cursor = m_database.rawQuery("SELECT COUNT(*) FROM " +
                 UtilisateurDbSchema.UtilisateurTable.NAME + " WHERE " +
@@ -240,8 +241,7 @@ public class SingletonBD {
                 Colonnes.NOM_COMPTE + " = " + p_username, null);
 
         return new UtilisateurCursorWrapper(cursor);
-    }
-
+=======
     public Utilisateur chercherUtilisateurSelonID(String p_idMarker) {
         UUID id = m_listeIDUtilisateurs.get(p_idMarker);
 
@@ -263,5 +263,6 @@ public class SingletonBD {
         }
 
         return utilisateur;
+>>>>>>> origin/MapsActivity
     }
 }
