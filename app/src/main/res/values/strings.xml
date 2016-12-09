@@ -4,7 +4,7 @@
     <string name="placeholer_password">Password</string>
     <string name="bouton_inscription">Inscription</string>
     <string name="bouton_connexion">Connexion</string>
-    <string name="description_accueil">Francais GO est une application Android basée sur google map pour retrouver d'autres francais</string>
+    <string name="description_accueil">Francais GO est une application Android basée sur google map pour retrouver d\'autres francais</string>
     <string name="title_activity_maps">Map</string>
     <string name="titre_inscription">Inscription :</string>
     <string name="nom_compte">Nom de compte :</string>
@@ -17,4 +17,5 @@
     <string name="commentaire">Commentaires (facultatif) :</string>
     <string name="bouton_confirmer">Créer compte</string>
     <string name="bouton_annuler">Annuler</string>
+    <string name="champs_invalide">Les champs ne sont pas valide</string>
 </resources>
