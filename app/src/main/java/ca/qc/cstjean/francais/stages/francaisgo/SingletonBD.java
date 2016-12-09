@@ -47,7 +47,6 @@ public class SingletonBD {
     private static ContentValues getContentValues(Marker p_marqueur, UUID p_id) {
         ContentValues values = new ContentValues();
 
-
         values.put(Colonnes.ID, p_id.toString());
         values.put(Colonnes.LATITUDE, p_marqueur.getPosition().latitude);
         values.put(Colonnes.LONGITUDE, p_marqueur.getPosition().longitude);
@@ -231,5 +230,28 @@ public class SingletonBD {
                 Colonnes.ID + " = " + p_id, null);
 
         return new UtilisateurCursorWrapper(cursor);
+    }
+
+    public Utilisateur chercherUtilisateurSelonID(String p_idMarker) {
+        UUID id = m_listeIDUtilisateurs.get(p_idMarker);
+
+        UtilisateurCursorWrapper cursor = queryUtilisateur(Colonnes.ID + "=?", new String[]{id.toString()});
+        Utilisateur utilisateur = null;
+        // essaie de bouger le curseur jusqu'à ce qu'il atteigne la fin
+        try {
+            // déplace le curseur au début des résultats de la requête
+            cursor.moveToFirst();
+
+            // tant que le curseur n'a pas atteint la fin
+            if (!cursor.isAfterLast()) {
+                utilisateur = cursor.getUtilisateur(); // on ajoute l'utilisateur pointé par le curseur à la liste
+            }
+        }
+        // si il y a une erreur quelquonque, on la laisse remonter après avoir fermé le curseur
+        finally {
+            cursor.close();
+        }
+
+        return utilisateur;
     }
 }

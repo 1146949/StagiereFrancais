@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="@string/fragment_carte_BoutonModification"
             android:id="@+id/carte_boutonModifier"
-            android:layout_weight="0.33"
+            android:layout_weight="1"
             android:visibility="visible" />
 
         <Button
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:text="@string/fragment_carte_BoutonSelection"
             android:id="@+id/carte_affichageSelection"
-            android:layout_weight="0.33"
+            android:layout_weight="1"
             android:visibility="gone" />
     </LinearLayout>
 
