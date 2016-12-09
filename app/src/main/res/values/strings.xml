@@ -6,4 +6,15 @@
     <string name="bouton_connexion">Connexion</string>
     <string name="description_accueil">Francais GO est une application Android basée sur google map pour retrouver d'autres francais</string>
     <string name="title_activity_maps">Map</string>
+    <string name="titre_inscription">Inscription :</string>
+    <string name="nom_compte">Nom de compte :</string>
+    <string name="mot_passe">Mot de passe :</string>
+    <string name="nom">Nom :</string>
+    <string name="prenom">Prénom :</string>
+    <string name="etablisseent_origine">Établissement d\'origine :</string>
+    <string name="endroit_stage">Nom de la ville où ce situe votre stage :</string>
+    <string name="joindre">Pour me jouindre :</string>
+    <string name="commentaire">Commentaires (facultatif) :</string>
+    <string name="bouton_confirmer">Créer compte</string>
+    <string name="bouton_annuler">Annuler</string>
 </resources>
