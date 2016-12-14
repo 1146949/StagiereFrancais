@@ -233,13 +233,5 @@ public class ValidationCompteTest {
         final String villeOrigineValide = "ville";
         final String contactValide = "truc@jdfh.com";
         final String descriptionValide = "une description x";
-
-        // La méthode doit retourner false
-        assertFalse(ValidationCompte.validerModificationCompte(lieuStageInvalide, villeOrigineInvalide,
-                contactInvalide, descriptionInvalide));
-
-        // La méthode doit retourner true
-        assertTrue(ValidationCompte.validerModificationCompte(lieuStageValide, villeOrigineValide,
-                contactValide, descriptionValide));
     }
 }

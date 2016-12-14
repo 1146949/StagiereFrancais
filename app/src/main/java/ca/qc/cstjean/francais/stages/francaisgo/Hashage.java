@@ -26,7 +26,7 @@ public class Hashage {
      * @throws NullPointerException
      * @link https://docs.oracle.com/javase/7/docs/api/java/math/BigInteger.html
      */
-    public static char[] HasherPasswordMD5(String p_password) throws NullPointerException {
+    public static String HasherPasswordMD5(String p_password) throws NullPointerException {
         if (p_password == null)
             return null;
 
@@ -37,7 +37,7 @@ public class Hashage {
             mdpHash = md.digest(p_password.getBytes("UTF-8"));
 
             BigInteger bigInt = new BigInteger(1, mdpHash);
-            return bigInt.toString(16).toCharArray();
+            return CharArrayToString(bigInt.toString(16).toCharArray());
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             System.out.println(e.getMessage());
         }

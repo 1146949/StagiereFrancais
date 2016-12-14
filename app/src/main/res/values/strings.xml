@@ -16,9 +16,10 @@
     <string name="prenom">Prénom :</string>
     <string name="etablisseent_origine">Établissement d\'origine :</string>
     <string name="endroit_stage">Nom de la ville où ce situe votre stage :</string>
-    <string name="joindre">Pour me jouindre :</string>
+    <string name="joindre">Pour me joindre :</string>
     <string name="commentaire">Commentaires (facultatif) :</string>
     <string name="bouton_confirmer">Créer compte</string>
     <string name="bouton_annuler">Annuler</string>
     <string name="champs_invalide">Les champs ne sont pas valide</string>
+    <string name="utilisateur_valide">L\'utilisateur est crée</string>
 </resources>

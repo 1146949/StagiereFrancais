@@ -21,9 +21,10 @@ import static ca.qc.cstjean.francais.stages.francaisgo.database.UtilisateurDbSch
 
 /**
  * Description : Classe permettant les query sur la base de donnés
+ *
  * @author Alexis Richer, Francis Prairie, Anthony Longtin
- * Date de création : 7 décembre 2016
- * Date de dernière modification : 7 décembre 2016
+ *         Date de création : 7 décembre 2016
+ *         Date de dernière modification : 7 décembre 2016
  */
 public class SingletonBD {
 
@@ -83,6 +84,8 @@ public class SingletonBD {
         values.put(Colonnes.ID, p_utilisateur.getID().toString());
         values.put(Colonnes.LATITUDE, p_utilisateur.getPosition().latitude);
         values.put(Colonnes.LONGITUDE, p_utilisateur.getPosition().longitude);
+        values.put(Colonnes.NOM_COMPTE, p_utilisateur.getNomCompte());
+        values.put(Colonnes.MOT_DE_PASSE, p_utilisateur.getMotDePasse());
         values.put(Colonnes.NOM, p_utilisateur.getNom());
         values.put(Colonnes.PRENOM, p_utilisateur.getPrenom());
         values.put(Colonnes.LIEU_STAGE, p_utilisateur.getLieuDeStage());
@@ -140,8 +143,12 @@ public class SingletonBD {
         m_listeIDUtilisateurs.put(p_idUtilisateurHashMap, p_idMarqueurBD);
     }
 
+    public void addUtilisateur(Utilisateur p_utilisateur) {
+        ContentValues values = getContentValues(p_utilisateur);
+        m_database.insert(UtilisateurTable.NAME, null, values);
+    }
+
     /**
-     *
      * @param p_utilisateur
      */
     public void updateUtilisateur(Utilisateur p_utilisateur) {
@@ -217,8 +224,33 @@ public class SingletonBD {
         return marqueurs;
     }
 
+    public Utilisateur getUtilisateurSelonID(UUID p_id) {
+
+        // créée un curseur Encapsulé à partir d'une requête sur toute la table (SELECT * FROM ...)
+        UtilisateurCursorWrapper cursor = queryUtilisateur(Colonnes.ID + "=?", new String[]{ p_id.toString() });
+
+        // essaie de bouger le curseur jusqu'à ce qu'il atteigne la fin
+        try {
+            // déplace le curseur au début des résultats de la requête
+            cursor.moveToFirst();
+
+            // tant que le curseur n'a pas atteint la fin
+            if (!cursor.isAfterLast()) {
+                return cursor.getUtilisateur(); // on ajoute l'utilisateur pointé par le curseur à la liste
+            }
+        }
+        // si il y a une erreur quelquonque, on la laisse remonter après avoir fermé le curseur
+        finally {
+            cursor.close();
+        }
+
+        // si tout s'est bien déroulé, on retourne la liste d'informations sur des utilisateurs
+        return null;
+    }
+
     /**
      * Requête qui teste l'existence d'un mot de passe donné dans la base de données.
+     *
      * @param p_motDePasse mot de passe hashé
      * @return un curseur encapsulé qui "pointe" sur la/les donnée(s) trouvées
      */
@@ -232,20 +264,46 @@ public class SingletonBD {
         return new UtilisateurCursorWrapper(cursor);
     }
 
-    public UtilisateurCursorWrapper queryTestUsername(String p_username, String p_motDePasse) {
+    private UtilisateurCursorWrapper queryTestUsername(String p_username, String p_motDePasse) {
         Cursor cursor = m_database.rawQuery("SELECT COUNT(*) FROM " +
                 UtilisateurDbSchema.UtilisateurTable.NAME + " WHERE " +
                 Colonnes.MOT_DE_PASSE +
-                " = " + p_motDePasse + " AND " +
-                Colonnes.NOM_COMPTE + " = " + p_username, null);
+                " = '" + p_motDePasse + "' AND " +
+                Colonnes.NOM_COMPTE + " = '" + p_username + "'", null);
 
         return new UtilisateurCursorWrapper(cursor);
     }
 
+    public Utilisateur getUtilisateur(String p_username, String p_motDePasse) {
+        UtilisateurCursorWrapper ucw = queryUtilisateur(Colonnes.NOM_COMPTE + "=? AND " + Colonnes.MOT_DE_PASSE + "=?", new String[]{p_username, p_motDePasse});
+        Utilisateur utilisateur = null;
+        // essaie de bouger le curseur jusqu'à ce qu'il atteigne la fin
+        try {
+            // déplace le curseur au début des résultats de la requête
+            ucw.moveToFirst();
+
+            // tant que le curseur n'a pas atteint la fin
+            if (!ucw.isAfterLast()) {
+                utilisateur = ucw.getUtilisateur(); // on ajoute l'utilisateur pointé par le curseur à la liste
+            }
+        }
+        // si il y a une erreur quelquonque, on la laisse remonter après avoir fermé le curseur
+        finally {
+            ucw.close();
+        }
+
+        return utilisateur;
+    }
+
     public Utilisateur chercherUtilisateurSelonID(String p_idMarker) {
         UUID id = m_listeIDUtilisateurs.get(p_idMarker);
+        return chercherUtilisateurSelonID(id);
+    }
 
-        UtilisateurCursorWrapper cursor = queryUtilisateur(Colonnes.ID + "=?", new String[]{id.toString()});
+
+    public Utilisateur chercherUtilisateurSelonID(UUID p_idUtilisateur) {
+
+        UtilisateurCursorWrapper cursor = queryUtilisateur(Colonnes.ID + "=?", new String[]{p_idUtilisateur.toString()});
         Utilisateur utilisateur = null;
         // essaie de bouger le curseur jusqu'à ce qu'il atteigne la fin
         try {
@@ -265,15 +323,15 @@ public class SingletonBD {
         return utilisateur;
     }
 
-    public String getIDMarker(UUID p_idUtilisateur){
-        for (String s: m_listeIDUtilisateurs.keySet()) {
+    public String getIDMarker(UUID p_idUtilisateur) {
+        for (String s : m_listeIDUtilisateurs.keySet()) {
             if (m_listeIDUtilisateurs.get(s).equals(p_idUtilisateur))
                 return s;
         }
         return null;
     }
 
-    public void viderBD(){
+    public void viderBD() {
         m_database.delete(UtilisateurTable.NAME, null, null);
         m_listeIDUtilisateurs.clear();
     }

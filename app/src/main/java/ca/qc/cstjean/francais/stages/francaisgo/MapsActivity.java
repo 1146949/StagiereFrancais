@@ -50,10 +50,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         m_map = googleMap;
-        m_singletonBD.viderBD();
-        AjouterMarker(m_utilisateurCourrant);
+        //m_singletonBD.viderBD();
         setUpMap();
-
     }
 
     /**
@@ -65,10 +63,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        Utilisateur util1 = new Utilisateur(UUID.randomUUID(), new LatLng(0,0), "bob", "Poutine1", "Boby", "lol", "Montréal", "Université Lyon", "282-222-2222", "Je suis cool");
-        m_utilisateurCourrant = util1;
-
         m_singletonBD = SingletonBD.getInstance(getApplicationContext());
+
+        UUID idUtilisateur = (UUID) getIntent().getSerializableExtra("UsagerCourant");
+        m_utilisateurCourrant = m_singletonBD.getUtilisateurSelonID(idUtilisateur);
+        // Utilisateur test : simule un autre utilisateur
+        //Utilisateur util1 = new Utilisateur(UUID.randomUUID(), new LatLng(0,0), "bob", "Poutine1", "Boby", "lol", "Montréal", "Université Lyon", "282-222-2222", "Je suis cool");
+
         setUpMapIfNeeded();
 
         GererLocations();
@@ -177,7 +178,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     m_map.animateCamera(CameraUpdateFactory.newLatLng(m_utilisateurCourrant.getPosition()), 250, null);
                 }
 
-                // Ferme le fialogue
+                // Ferme le dialogue
                 dialog.cancel();
 
             }
