@@ -42,8 +42,8 @@ public class UtilisateurBaseHelper extends SQLiteOpenHelper {
                 Colonnes.MOT_DE_PASSE + ", " +
                 Colonnes.NOM + ", " +
                 Colonnes.PRENOM + ", " +
-                Colonnes.LIEU_STAGE + ", " +
-                Colonnes.VILLE_ORIGINE + ", " +
+                Colonnes.VILLE_STAGE + ", " +
+                Colonnes.ETABLISSEMENT_ORIGINE + ", " +
                 Colonnes.CONTACT + ", " +
                 Colonnes.DESCRIPTION  + ")");
     }

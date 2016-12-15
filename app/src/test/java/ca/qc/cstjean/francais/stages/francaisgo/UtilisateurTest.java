@@ -44,8 +44,8 @@ public class UtilisateurTest {
         assertEquals(motPasse, utilisateur.getMotDePasse());
         assertEquals(nomUtilisateur, utilisateur.getNom());
         assertEquals(prenomUtilisateur, utilisateur.getPrenom());
-        assertEquals(lieuStage, utilisateur.getLieuDeStage());
-        assertEquals(villeOrigine, utilisateur.getVilleOrigine());
+        assertEquals(lieuStage, utilisateur.getVilleDeStage());
+        assertEquals(villeOrigine, utilisateur.getEtablissementOrigine());
         assertEquals(contact, utilisateur.getContact());
         assertEquals(description, utilisateur.getDescription());
     }

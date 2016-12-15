@@ -20,8 +20,8 @@ public class Utilisateur implements Serializable {
     private String MotDePasse;
     private String Nom;
     private String Prenom;
-    private String LieuDeStage;
-    private String VilleOrigine;
+    private String VilleDeStage;
+    private String EtablissementOrigine;
     private String Contact;
     private String Description;
 
@@ -45,8 +45,8 @@ public class Utilisateur implements Serializable {
         MotDePasse = p_motDePasse;
         Nom = p_nom;
         Prenom = p_prenom;
-        LieuDeStage = p_lieuStage;
-        VilleOrigine = p_villeOrigine;
+        VilleDeStage = p_lieuStage;
+        EtablissementOrigine = p_villeOrigine;
         Contact = p_contact;
         Description = p_description;
     }
@@ -67,12 +67,12 @@ public class Utilisateur implements Serializable {
         Prenom = p_prenom;
     }
 
-    public void setLieuDeStage(String p_lieuDeStage) {
-        LieuDeStage = p_lieuDeStage;
+    public void setVilleDeStage(String p_lieuDeStage) {
+        VilleDeStage = p_lieuDeStage;
     }
 
     public void setEtablissementOrigine(String p_villeOrigine) {
-        VilleOrigine = p_villeOrigine;
+        EtablissementOrigine = p_villeOrigine;
     }
 
     public void setContact(String p_contact) {
@@ -131,16 +131,16 @@ public class Utilisateur implements Serializable {
      * Accesseur du lieu de stage
      * @return lieu de stage de l'utilisateur
      */
-    public String getLieuDeStage() {
-        return LieuDeStage;
+    public String getVilleDeStage() {
+        return VilleDeStage;
     }
 
     /**
      * Accesseur de la ville d'origine
      * @return la ville d'origine de l'utilisateur
      */
-    public String getVilleOrigine() {
-        return VilleOrigine;
+    public String getEtablissementOrigine() {
+        return EtablissementOrigine;
     }
 
     /**

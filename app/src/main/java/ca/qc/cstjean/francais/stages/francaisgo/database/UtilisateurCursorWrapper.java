@@ -39,8 +39,8 @@ public class UtilisateurCursorWrapper extends CursorWrapper {
 		String motDePasse = getString(getColumnIndex(UtilisateurTable.Colonnes.MOT_DE_PASSE));
         String nom = getString(getColumnIndex(UtilisateurTable.Colonnes.NOM));
         String prenom = getString(getColumnIndex(UtilisateurTable.Colonnes.PRENOM));
-        String lieuStage = getString(getColumnIndex(UtilisateurTable.Colonnes.LIEU_STAGE));
-        String villeOrigine = getString(getColumnIndex(UtilisateurTable.Colonnes.VILLE_ORIGINE));
+        String lieuStage = getString(getColumnIndex(UtilisateurTable.Colonnes.VILLE_STAGE));
+        String villeOrigine = getString(getColumnIndex(UtilisateurTable.Colonnes.ETABLISSEMENT_ORIGINE));
         String contact = getString(getColumnIndex(UtilisateurTable.Colonnes.CONTACT));
         String description = getString(getColumnIndex(UtilisateurTable.Colonnes.DESCRIPTION));
 

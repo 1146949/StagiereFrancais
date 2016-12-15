@@ -29,9 +29,9 @@ public class UtilisateurDbSchema {
             // colonne qui indique le prenom d'un Element
             public static final String PRENOM = "prenom";
             // colonne qui indique le lieu de stage d'un Element
-            public static final String LIEU_STAGE = "lieu_stage";
+            public static final String VILLE_STAGE = "lieu_stage";
             // colonne qui indique la ville d'origine d'un Element
-            public static final String VILLE_ORIGINE = "ville_origine";
+            public static final String ETABLISSEMENT_ORIGINE = "ville_origine";
             // colonne qui indique le contact d'un Element
             public static final String CONTACT = "contact";
             // colonne qui indique la description d'un Element

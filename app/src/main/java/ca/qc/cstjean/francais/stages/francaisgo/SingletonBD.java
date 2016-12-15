@@ -70,8 +70,8 @@ public class SingletonBD {
 
         values.put(Colonnes.NOM, user.getNom());
         values.put(Colonnes.PRENOM, user.getPrenom());
-        values.put(Colonnes.LIEU_STAGE, user.getLieuDeStage());
-        values.put(Colonnes.VILLE_ORIGINE, user.getVilleOrigine());
+        values.put(Colonnes.VILLE_STAGE, user.getVilleDeStage());
+        values.put(Colonnes.ETABLISSEMENT_ORIGINE, user.getEtablissementOrigine());
         values.put(Colonnes.CONTACT, user.getContact());
         values.put(Colonnes.DESCRIPTION, user.getDescription());
 
@@ -88,8 +88,8 @@ public class SingletonBD {
         values.put(Colonnes.MOT_DE_PASSE, p_utilisateur.getMotDePasse());
         values.put(Colonnes.NOM, p_utilisateur.getNom());
         values.put(Colonnes.PRENOM, p_utilisateur.getPrenom());
-        values.put(Colonnes.LIEU_STAGE, p_utilisateur.getLieuDeStage());
-        values.put(Colonnes.VILLE_ORIGINE, p_utilisateur.getVilleOrigine());
+        values.put(Colonnes.VILLE_STAGE, p_utilisateur.getVilleDeStage());
+        values.put(Colonnes.ETABLISSEMENT_ORIGINE, p_utilisateur.getEtablissementOrigine());
         values.put(Colonnes.CONTACT, p_utilisateur.getContact());
         values.put(Colonnes.DESCRIPTION, p_utilisateur.getDescription());
 

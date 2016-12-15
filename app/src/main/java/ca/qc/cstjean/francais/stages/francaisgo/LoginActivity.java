@@ -10,6 +10,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.maps.model.LatLng;
+
+import java.util.UUID;
 
 /**
  * Created by Anthony on 2016-12-02.
@@ -31,6 +34,29 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         singletonBD = SingletonBD.getInstance(getApplicationContext());
+        /*
+        singletonBD.viderBD();
+        // Utilisateur test : simule d'autres utilisateur
+        Utilisateur util1 = new Utilisateur(UUID.randomUUID(), new LatLng(45.594822 ,-73.557587),
+                "Jean", Hashage.HasherPasswordMD5("12345"), "Jean", "Philippe", "Montréal",
+                "Université Lyon", "282-222-2222", "J'aime les frites");
+        Utilisateur util2 = new Utilisateur(UUID.randomUUID(), new LatLng(45.542908  ,-73.602219),
+                "Ginette", Hashage.HasherPasswordMD5("12345"), "Bertrand", "Ginette", "Montréal", "Université Lyon",
+                "22-222-2222", "Salut à tous");
+        Utilisateur util3 = new Utilisateur(UUID.randomUUID(), new LatLng(45.296385  ,-73.267393),
+                "maxime", Hashage.HasherPasswordMD5("12345"), "Laflèche", "Maxime", "Saint-Jean-sur-Richelieu",
+                "Université Lyon", "282-222-2222",
+                "Ajoutez moi sur facebook https://www.facebook.com/profile.php?id=669079271");
+        Utilisateur util4 = new Utilisateur(UUID.randomUUID(), new LatLng(45.298709  ,-73.253982),
+                "thomas", Hashage.HasherPasswordMD5("12345"), "Lamarre", "Thomas", "Saint-Jean-sur-Richelieu",
+                "Université Lyon", "282-222-2222", "Salut à tous");
+
+
+        singletonBD.addUtilisateur(util1);
+        singletonBD.addUtilisateur(util2);
+        singletonBD.addUtilisateur(util3);
+        singletonBD.addUtilisateur(util4);
+        */
         AffecterControles();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.

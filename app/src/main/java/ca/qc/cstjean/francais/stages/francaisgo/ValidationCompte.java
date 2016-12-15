@@ -54,7 +54,7 @@ class ValidationCompte {
      */
     public static boolean validerMotDePasse(String p_motDePasse) {
         // Modification v1.2 : Refactoring pour du code plus réutilisable
-        return validerStringBase(p_motDePasse, 8, 16);
+        return validerStringBase(p_motDePasse, 4, 16);
     }
 
     /**
@@ -87,7 +87,7 @@ class ValidationCompte {
      */
     public static boolean validerEtablissementOrigine(String p_etablissement) {
         // Modification v1.2 : Refactoring pour du code plus réutilisable
-        return validerStringBase(p_etablissement, 5, 30);
+        return validerStringBase(p_etablissement, 3, 100);
     }
 
     /**
@@ -98,7 +98,7 @@ class ValidationCompte {
      */
     public static boolean validerVilleStage(String p_ville) {
         // Modification v1.2 : Refactoring pour du code plus réutilisable
-        return validerStringBase(p_ville, 5, 30);
+        return validerStringBase(p_ville, 3, 100);
     }
 
     /**
@@ -121,7 +121,7 @@ class ValidationCompte {
      */
     public static boolean validerCommentaire(String p_commentaire) {
         // Modification v1.2 : Refactoring pour du code plus réutilisable
-        return validerStringBase(p_commentaire, 0, 30);
+        return validerStringBase(p_commentaire, 0, 250);
     }
 
     /**
